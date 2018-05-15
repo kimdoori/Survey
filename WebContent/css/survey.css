@@ -1,16 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.signin-page {
-  width: 800px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.signup-page {
+.join-page {
   width: 500px;
   padding: 8% 0 0;
   margin: auto;
 }
-.review-page
+.create-page
  {
   width: 500px;
   padding: 8% 0 0;
@@ -80,12 +75,17 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.signup-page .form .button {
+
+.form .button:hover,.form .button:active,.form .button:focus {
+   background:rgba(92,196,97, 0.8);
+
+}
+.add {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background:rgba(255, 255, 72,0.8);
-  width: 360PX;
+  background:#5cc461;
+  width: 50PX;
   border: 0;
   padding: 15px;
   color: black;
@@ -94,11 +94,11 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form .button:hover,.form .button:active,.form .button:focus {
+
+.add:hover,.add:active,.add:focus {
    background:rgba(92,196,97, 0.8);
 
 }
-
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -148,7 +148,7 @@
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #fdfdfd;
-  width: 90%;
+  width: 86%;
   border: 0;
   margin: 0 0 10px;
   padding: 15px;
@@ -184,4 +184,18 @@
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+}
+label{
+	display:inline-block;
+}
+.form .check{
+	  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #fdfdfd;
+  width: 5%;
+  border: 0;
+  
+  box-sizing: border-box;
+  font-size: 14px;
+
 }

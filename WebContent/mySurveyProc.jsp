@@ -13,10 +13,20 @@
 
 </head>
 <body>
-<div style="text-align:center;"><h2>설문 참여하기</h2></div>
+<div style="text-align:center;"><h2>내 설문</h2></div>
 <div class="scroll-container">
-
 <%
+		response.setContentType("text/html;charset='UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		
+		String id = (String)session.getAttribute("id");
+		if(id == null || id.equals("")){%>
+		<jsp:forward page="framePage.jsp">
+			<jsp:param name="CONTENTPAGE" value="signin.jsp"/>
+		</jsp:forward>
+<%
+		}
+
 BufferedReader reader = null;
 
 try {
@@ -26,8 +36,9 @@ try {
 	File[] fileList = dirFile.listFiles();
 	int reviewCnt=0;
 	for (File tempFile : fileList) {
-		
 		String tempFileName = tempFile.getName();
+
+		if(tempFileName.replaceAll("[0-9-]","").replaceAll(" ","").equals(id+".txt")){
 		System.out.println(filepath+tempFileName);
 		reader = new BufferedReader(new FileReader(filepath + tempFileName+"/question.txt"));
 		
@@ -53,7 +64,7 @@ try {
 			
 		
 
-	} 
+	} }
 
 } catch (Exception e) {
 	out.println("파일을 읽을 수 없습니다.");

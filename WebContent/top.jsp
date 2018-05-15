@@ -105,6 +105,9 @@ h1{
 	font-family: 'Bowlby One SC', cursive;
 	color:#5cc461;
 }
+h1 a{
+text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -130,7 +133,7 @@ h1{
 <tr>
 <td>
 <div style="text-align:center;padding:8px;">
-<h1>SURVEY</h1>
+<h1><a href='join.jsp'>SURVEY</a></h1>
 </div>
 </td>
 </tr>
@@ -155,7 +158,7 @@ h1{
 </li>
 <li class="item">
 <div class="top-menu-container">
-  <button class="top-menu-btn">내 설문</button>
+  <a href="mySurvey.jsp"><button class="top-menu-btn">내 설문</button></a>
  
 </div>
 </li>

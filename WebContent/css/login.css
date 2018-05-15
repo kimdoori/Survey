@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .signin-page {
-  width: 800px;
+  width: 500px;
   padding: 8% 0 0;
   margin: auto;
 }
@@ -21,8 +21,7 @@
   position: relative;
   z-index: 1;
   background: #5cc461;
-  width:100%;
- /*  max-width: 360px; */
+ max-width: 360px;
   margin: 0 auto 100px;
  /*  padding: 45px; */
   text-align: left;

@@ -1,30 +1,30 @@
 
 /* Scrollbar styles */
-.container{
-	margin:auto;
+.scroll-container{
+margin:auto;
  overflow:scroll;
- width:600px;
+width:800px;
  height:600px;
  border:1px solid #5cc461;
  
  }
  
-.container::-webkit-scrollbar{
+.scroll-container::-webkit-scrollbar{
 width: 12px;
 height: 12px;
 }
 
-.container::-webkit-scrollbar-track {
+.scroll-container::-webkit-scrollbar-track {
 border: 0px solid #5cc461;
 border-radius: 5px;
 }
 
-.container::-webkit-scrollbar-thumb {
+.scroll-container::-webkit-scrollbar-thumb {
 background: #5cc461;  
 border-radius: 5px;
 }
 
-.container::-webkit-scrollbar-thumb:hover {
+.scroll-container::-webkit-scrollbar-thumb:hover {
 background: #88ba1c;  
 }
  
