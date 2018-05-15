@@ -27,7 +27,11 @@
 		boolean isExist = false;
 		try {
 			String filepath = application.getRealPath("/WEB-INF/member/");
-
+			File directory = new File(filepath);
+			 if(!directory.exists()){
+		            //디렉토리 생성 메서드
+		            directory.mkdirs();
+		      }
 			File dirFile = new File(filepath);
 			File[] fileList = dirFile.listFiles();
 			int reviewCnt = 0;
@@ -72,7 +76,7 @@
 
 			session.setAttribute("id", input_id);
 			session.setAttribute("name", user_name);
-			out.println("<script>location.href='index.jsp';</script>");
+			out.println("<script>location.href='mySurvey.jsp';</script>");
 
 	%>
 	<%-- <jsp:forward page="framePage.jsp">

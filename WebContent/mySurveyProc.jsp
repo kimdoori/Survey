@@ -37,9 +37,8 @@ try {
 	int reviewCnt=0;
 	for (File tempFile : fileList) {
 		String tempFileName = tempFile.getName();
-
-		if(tempFileName.replaceAll("[0-9-]","").replaceAll(" ","").equals(id+".txt")){
-		System.out.println(filepath+tempFileName);
+		if(tempFileName.replaceAll("[0-9-]","").replaceAll(" ","").equals(id)){
+		
 		reader = new BufferedReader(new FileReader(filepath + tempFileName+"/question.txt"));
 		
 		String  title = reader.readLine();
@@ -60,7 +59,7 @@ try {
 			+"<div class='description'><h1>"+title+"</h1>"
 			/* "<h2>Opening a door to the future</h2>" */
 			+"<p class='summary'>"+contents+"</p>"
-			+"<a href='joinSurvey.jsp?folderName="+tempFileName+"'>Go to survey</a></div></div>");
+			+"<a href='surveyChart.jsp?folderName="+tempFileName+"'>결과 확인하기</a></div></div>");
 			
 		
 

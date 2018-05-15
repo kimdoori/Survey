@@ -109,6 +109,11 @@
 		boolean isExist = false;
 		try {
 			String filepath = application.getRealPath("/WEB-INF/member/");
+			File directory = new File(filepath);
+			 if(!directory.exists()){
+		            //디렉토리 생성 메서드
+		            directory.mkdirs();
+		      }
 			System.out.println(filepath);
 
 			File dirFile = new File(filepath);

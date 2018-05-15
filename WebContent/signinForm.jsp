@@ -37,13 +37,13 @@ String contentpage = request.getParameter("CONTENTPAGE");
   </div>
 </div>
  -->
-<div class="signin-page">
+<div class="signup-page">
   <div class="form">
     <table width="100%">
     <tr>
     
     <td width="400px" style="padding:45px;">
-    <form class="login-form"  action="signupProc.jsp" method="post" class="login">
+    <form class="login-form"  action="signinProc.jsp" method="post" class="login">
     <input hidden="true">
   <input type="text" name="id" placeholder="ID"/>
       <input type="password" name="pw" placeholder="password"/>
