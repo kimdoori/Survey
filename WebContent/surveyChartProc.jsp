@@ -43,7 +43,8 @@ var currentAnswer = 1;
 				
 				//question 배열 생성
 				String[] questionArray = questions.toString().split("\n");
-				/* String[][] totalAnswerArray=new String[questionArray.length][];
+				String[][] totalAnswerArray=new String[questionArray.length][];//질문번호/답변번호 안에 답변 들어있음.
+				int[][] totalAnsweraNum;//질문번호/답변번호 안에 답변 총 수 들어있음.
 
 				//answer 배열 생성
 				reader = new BufferedReader(new FileReader(questionfilepath));
@@ -55,13 +56,13 @@ var currentAnswer = 1;
 						break;
 					if(str.substring(0,1).equals("Q")){
 						totalAnswerArray[qnum] = answers.toString().split("\n");
-						answers=null;
+						answers.setLength(0);
 						qnum++;
 						
 					}
 					answers.append(str.substring(str.indexOf(":")+1)+"\n");
-				} */
-				
+				}
+
 				
 				
 				
