@@ -44,12 +44,14 @@ var currentAnswer = 1;
 				//question 배열 생성
 				String[] questionArray = questions.toString().split("\n");
 				String[][] totalAnswerArray=new String[questionArray.length][];//질문번호/답변번호 안에 답변 들어있음.
-				int[][] totalAnsweraNum;//질문번호/답변번호 안에 답변 총 수 들어있음.
-
+				
+				//TODO : 전체 정보를 저장해서 차트로 출력하
+				/* 
 				//answer 배열 생성
 				reader = new BufferedReader(new FileReader(questionfilepath));
 				StringBuffer answers = new StringBuffer();
-				int qnum=0;
+				int qnum=-1;
+				int anum;
 				while (true) {
 					String str = reader.readLine();
 					if (str == null)
@@ -58,12 +60,22 @@ var currentAnswer = 1;
 						totalAnswerArray[qnum] = answers.toString().split("\n");
 						answers.setLength(0);
 						qnum++;
+						anum=0;
+						
 						
 					}
+					totalAnswerArray[qnum][anum++]
 					answers.append(str.substring(str.indexOf(":")+1)+"\n");
 				}
-
 				
+				int[][] totalAnsweraNum = new int[questionArray.length][];//질문번호/답변번호 안에 답변 총 수 들어있음.
+				for(int j=0;j<totalAnswerArray.length;j++){
+					totalAnsweraNum[j] = new int[totalAnswerArray[j].length];
+				}
+				
+				
+				
+				 */
 				
 				
 				String[][] answerArray = new String[questionArray.length][1];
