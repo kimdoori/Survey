@@ -43,6 +43,28 @@ var currentAnswer = 1;
 				
 				//question 배열 생성
 				String[] questionArray = questions.toString().split("\n");
+				/* String[][] totalAnswerArray=new String[questionArray.length][];
+
+				//answer 배열 생성
+				reader = new BufferedReader(new FileReader(questionfilepath));
+				StringBuffer answers = new StringBuffer();
+				int qnum=0;
+				while (true) {
+					String str = reader.readLine();
+					if (str == null)
+						break;
+					if(str.substring(0,1).equals("Q")){
+						totalAnswerArray[qnum] = answers.toString().split("\n");
+						answers=null;
+						qnum++;
+						
+					}
+					answers.append(str.substring(str.indexOf(":")+1)+"\n");
+				} */
+				
+				
+				
+				
 				String[][] answerArray = new String[questionArray.length][1];
 				
 				 String filepath = application.getRealPath("/WEB-INF/survey/"+folderName+"/answer/");
