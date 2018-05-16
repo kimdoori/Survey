@@ -42,43 +42,65 @@ var currentAnswer = 1;
 				}
 				
 				//question 배열 생성
-				String[] questionArray = questions.toString().split("\n");
+				String[] questionArray = questions.toString().trim().split("\n");
 				String[][] totalAnswerArray=new String[questionArray.length][];//질문번호/답변번호 안에 답변 들어있음.
-				
+			 	int[][] totalAnswerNum = new int[questionArray.length][];//질문번호/답변번호 안에 답변 총 수 들어있음.
+
 				//TODO : 전체 정보를 저장해서 차트로 출력하
-				/* 
+				 
 				//answer 배열 생성
 				reader = new BufferedReader(new FileReader(questionfilepath));
 				StringBuffer answers = new StringBuffer();
+				while(true){
+					String temp = reader.readLine();
+					if(temp.substring(0,1).equals("Q"))
+						break;
+				}
+				
 				int qnum=-1;
-				int anum;
 				while (true) {
 					String str = reader.readLine();
-					if (str == null)
-						break;
-					if(str.substring(0,1).equals("Q")){
-						totalAnswerArray[qnum] = answers.toString().split("\n");
-						answers.setLength(0);
+					if (str == null){
 						qnum++;
-						anum=0;
-						
+						totalAnswerArray[qnum] = answers.toString().trim().split("\n");
+						totalAnswerNum[qnum] = new int[totalAnswerArray[qnum].length];
+						break;
+					}
+					if(str.substring(0,1).equals("Q")){
+						qnum++;
+						totalAnswerArray[qnum] = answers.toString().trim().split("\n");
+						totalAnswerNum[qnum] = new int[totalAnswerArray[qnum].length];
+						answers.setLength(0);
 						
 					}
-					totalAnswerArray[qnum][anum++]
+					if(str.substring(0,1).equals("A")){
 					answers.append(str.substring(str.indexOf(":")+1)+"\n");
+					}
 				}
 				
-				int[][] totalAnsweraNum = new int[questionArray.length][];//질문번호/답변번호 안에 답변 총 수 들어있음.
-				for(int j=0;j<totalAnswerArray.length;j++){
-					totalAnsweraNum[j] = new int[totalAnswerArray[j].length];
-				}
-				
-				
-				
+				/* 
+				System.out.println("totalArray[i]"+totalAnswerArray.length);
+				 for(int i=0;i<totalAnswerArray.length;i++){
+					for(int j =0; j <totalAnswerArray[i].length;j++){
+						System.out.println("totalArray ["+i+"]["+j+"]: "+totalAnswerArray[i][j]);
+
+					}
+				}  
+				 for(int i=0;i<totalAnswerNum.length;i++){
+						for(int j =0; j <totalAnswerNum[i].length;j++){
+							totalAnswerNum[i][j]=0;
+							 System.out.println("totalAnswerNum ["+i+"]["+j+"]: "+totalAnswerNum[i][j]);
+ 
+						}
+					}  
+					
 				 */
 				
 				
-				String[][] answerArray = new String[questionArray.length][1];
+				
+				
+				
+				
 				
 				 String filepath = application.getRealPath("/WEB-INF/survey/"+folderName+"/answer/");
 				 File answerDirectory = new File(filepath);
@@ -111,22 +133,49 @@ var currentAnswer = 1;
 								break;
 							if(str.substring(0,1).equals("Q")){
 								out.println("<p>질문 "+(qcnt+1)+" :"+questionArray[qcnt++]+" </p>");
-								answerArray[qcnt-1][0]="";
 								continue;
 							}
 							out.println(str);
-							answerArray[qcnt-1][0]+=str+",";
+							for(int j=0;j<totalAnswerArray[qcnt-1].length;j++){
+								if(totalAnswerArray[qcnt-1][j].equals(str)){
+									totalAnswerNum[qcnt-1][j]++;
+									break;
+								}
+
+							}
 							
 						}
-					//결고 ㅏ통계냐ㅐ기
+					
 					  out.println("</div>");
 					}
 					
+					
 
 				} 
+				
+				 for(int i=0;i<totalAnswerNum.length;i++){
+					for(int j =0; j <totalAnswerNum[i].length;j++){
+						 System.out.println(totalAnswerArray[i][j]+" : "+totalAnswerNum[i][j]);
+						 
+					}
+				}  
+				
+				out.println("<br>");
+				//결과 통계내기
+				for(int i=0;i<totalAnswerNum.length;i++){
+					out.println("질문 "+(i+1)+" : "+questionArray[i]+"<br>");
+					for(int j =0; j <totalAnswerNum[i].length;j++){
+						 System.out.println(totalAnswerArray[i][j]+" : "+totalAnswerNum[i][j]);
+						 out.println(totalAnswerArray[i][j]+"<br>");
+						 out.println("<div style='background-color:red;display:inline-block;width:"+100/cnt*totalAnswerNum[i][j]+"%;'>"+(float)100/cnt*totalAnswerNum[i][j]+"%</div><br>");
+
+					}
+					out.println("<br><br>");
+				} 
+				
 
 			} catch (Exception e) {
-				out.println("파일을 읽을 수 없습니다.");
+				e.printStackTrace();
 			}
 		%>
 		
