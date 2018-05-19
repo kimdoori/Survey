@@ -16,6 +16,9 @@
 	request.setCharacterEncoding("UTF-8");
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
+	String image = request.getParameter("image");
+	if(image == null || image.replaceAll(" ","").equals(""))
+		image= "http://i62.tinypic.com/34oq4o0.jpg";
 
 	String[] question =request.getParameterValues("question");
 	String multi; 
@@ -54,6 +57,7 @@
 		writer.printf("%s %n",title);
 		writer.printf("%s %n",w_time);
 		writer.printf("%s %n",user);
+		writer.printf("%s%n",image);
 		writer.printf("%s %n",content);
 		for(int i=0;i<question.length;i++){
 			writer.printf("Q%d:%s%n",i+1,question[i]);

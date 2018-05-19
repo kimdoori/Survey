@@ -34,6 +34,8 @@ try {
 		String  title = reader.readLine();
 		String  w_time= reader.readLine();
 		String  writer= reader.readLine();
+		String  image= reader.readLine();
+
 		StringBuffer contents = new StringBuffer();
 		String str;
 			while (true) {
@@ -43,7 +45,7 @@ try {
 				contents.append(str);
 			}
 		
-			out.print("<div class='blog-card'><div class='photo photo1'></div>"
+			out.print("<div class='blog-card'><div class='photo photo1' style='background: url(\""+image+"\") center no-repeat;background-size: cover;'></div>"
 			+"<ul class='details'><li class='author'><a href='#'>작성자 : "+writer+"</a></li>"
 			+"<li class='date'>"+w_time+"</li></ul>"
 			+"<div class='description'><h1>"+title+"</h1>"

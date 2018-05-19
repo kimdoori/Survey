@@ -95,7 +95,7 @@ margin:0px;
   line-height: 30px;
 }
 #user{
-  		color: #f1f1f1;
+	color:#5cc461;
 	    padding: 8px;
 	    font-size: 20px;
 	    margin-right:30px;

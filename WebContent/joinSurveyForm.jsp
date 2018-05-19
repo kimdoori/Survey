@@ -16,11 +16,16 @@
 	String folderName = request.getParameter("folderName");
 	%>
 
-	<h2>설문지 작성</h2>
 
 	<div class="join-page">
 		<div class="form">
 			<table width="100%">
+			<tr>
+			<td>
+			<div style="text-align:center;"><h2>설문 참여</h2></div>
+			
+			</td>
+			</tr>
 				<tr>
 					<td width="400px" style="padding: 45px;">
 						<form class="survey-form" action="joinSurveyProc.jsp?folderName=<%=folderName%>"
@@ -42,6 +47,7 @@
 										out.println("<h2>"+title+"</h2>");
 										String w_time = reader.readLine();
 										String writer = reader.readLine();
+										String imgae = reader.readLine();
 										
 										StringBuffer contents = new StringBuffer();
 										String str;

@@ -15,9 +15,22 @@ var currentAnswer = 1;
 
 </head>
 <body>
+<table style="margin:auto;width:50%;">
+<tr>
+<td style="text-align:center;">
+<h3>개별 답변</h3>
 
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
 <button type="button" onclick="showAnswer(currentAnswer - 1)">Previous</button>
+<div id="cardNum" style="color:black;display:inline-block;">1</div>
 <button type="button" onclick="showAnswer(currentAnswer + 1)">Next</button>
+</td>
+</tr>
+<tr>
+<td>
 <%
 		request.setCharacterEncoding("UTF-8");
 		String folderName = request.getParameter("folderName");
@@ -124,7 +137,7 @@ var currentAnswer = 1;
 						
 						StringBuffer contents = new StringBuffer();
 						
-						out.println("<div id='answer"+cnt+"' class='answerCard' style='display:"+((cnt==1)?"inline-block":"none")+";'>");
+						out.println("<center><div id='answer"+cnt+"' class='answerCard' style='display:"+((cnt==1)?"inline-block":"none")+";'>");
 						int qcnt=0;
 						
 						while (true) {
@@ -132,7 +145,7 @@ var currentAnswer = 1;
 							if (str == null)
 								break;
 							if(str.substring(0,1).equals("Q")){
-								out.println("<p>질문 "+(qcnt+1)+" :"+questionArray[qcnt++]+" </p>");
+								out.println("<p style='font-weight:bold;'>질문 "+(qcnt+1)+" :"+questionArray[qcnt++]+" </p>");
 								continue;
 							}
 							out.println(str);
@@ -146,7 +159,7 @@ var currentAnswer = 1;
 							
 						}
 					
-					  out.println("</div>");
+					  out.println("</div></center>");
 					}
 					
 					
@@ -159,18 +172,28 @@ var currentAnswer = 1;
 						 
 					}
 				}  
-				
-				out.println("<br>");
+				 out.println("</td></tr>");
+				 out.println("<tr><td style='text-align:center;'><h3>");
+				 out.println("통계</h3>");
+				 
+				 out.println("</td></tr>");
 				//결과 통계내기
 				for(int i=0;i<totalAnswerNum.length;i++){
-					out.println("질문 "+(i+1)+" : "+questionArray[i]+"<br>");
+					 out.println("<tr><td>");
+
+					out.println("<center><p style='font-weight:bold;'>질문 "+(i+1)+" : "+questionArray[i]+"</p></center>");
+					out.println("<table width='100%'>");
 					for(int j =0; j <totalAnswerNum[i].length;j++){
 						 System.out.println(totalAnswerArray[i][j]+" : "+totalAnswerNum[i][j]);
-						 out.println(totalAnswerArray[i][j]+"<br>");
-						 out.println("<div style='background-color:red;display:inline-block;width:"+100/cnt*totalAnswerNum[i][j]+"%;'>"+(float)100/cnt*totalAnswerNum[i][j]+"%</div><br>");
+						 
+						 out.println("<tr><td style='width:20%;'><span style='font-weight:bold;'>"+totalAnswerArray[i][j]+"</span></td>");
+						 out.println("<td><div style='background-color:#5cc461;display:inline-block;width:"+100/cnt*totalAnswerNum[i][j]+"%;'>"+(float)100/cnt*totalAnswerNum[i][j]+"%</div></td></tr>");
 
 					}
-					out.println("<br><br>");
+					out.println("</table>");
+
+					 out.println("</td></tr>");
+
 				} 
 				
 
@@ -178,7 +201,7 @@ var currentAnswer = 1;
 				e.printStackTrace();
 			}
 		%>
-		
+</table>		
 <script>
 		function showAnswer(num) {
    for(i = 1; i <= <%=cnt%>; i++) {
@@ -189,6 +212,8 @@ var currentAnswer = 1;
    if(num > <%=cnt%>) num = <%=cnt%>;
    document.getElementById("answer"+num).style.display = "inline-block";
    currentAnswer=num;
+   document.getElementById("cardNum").innerHTML = currentAnswer;
+
 } 
 </script>
 </body>
