@@ -24,7 +24,7 @@ var questionNum=1;
 function addAnswer(num){
 	var qusetionUL = document.getElementById("question"+num);
 	var answerLI = document.createElement('li');
-	answerLI.innerHTML="<input class='answer' type='text' name='answer"+num+"' required	placeholder='답변'> <button type='button' class='add' onclick='deleteAnswer('1')'>-</button>";
+	answerLI.innerHTML="<input class='answer' type='text' name='answer"+num+"' required	placeholder='답변'> <button type='button' class='add' onclick='deleteAnswer(this)'>-</button>";
 	
 	qusetionUL.appendChild(answerLI);
 }
@@ -33,11 +33,17 @@ function addQuestion(){
 	var qusetionContainer = document.getElementById("question-container");
 	var qusetionDiv = document.createElement('div');
 	qusetionDiv.innerHTML = "<input type='checkbox' class='check' name='multi"+questionNum+"' value='checked'><label>답변 중복 가능</label><br><input class='question' type='text' name='question' required placeholder='질문' />"
-	+"  <button type='button' class='add' onclick=\"addAnswer('"+questionNum+"')\">+</button>"
-	+"<ul class='question_ul' id='question"+questionNum+"'><li><input class='answer' type='text' name='answer"+questionNum+"' required placeholder='답변' /></li></ul>";
+	+" <button type='button' class='add' onclick=\"deleteQuestion('"+questionNum+"')\">-</button> "
+	+"<ul class='question_ul' id='question"+questionNum+"'><li><input class='answer' type='text' name='answer"+questionNum+"' required placeholder='답변' /> <button type='button' class='add' onclick=\"addAnswer('"+questionNum+"')\">+</button> </li></ul>";
 	qusetionContainer.appendChild(qusetionDiv);
 }
-
+function deleteQuestion(num){
+	var question = document.getElementById("question"+num);
+	question.parentElement.remove();
+}
+function deleteAnswer(answer){
+	answer.parentElement.remove();
+}
 </script>
 
 	<div class="create-page">
@@ -64,10 +70,11 @@ function addQuestion(){
 							<div id="question-container">
 							<div>
 							<input type="checkbox" class="check"  name='multi1' value='checked'><label>답변 중복 가능</label><br>
-							 <input class="question" type="text" name="question" required placeholder="질문" /> <button type="button" class="add" onclick="addAnswer('1')">+</button> 
+							 <input class="question" type="text" name="question" required placeholder="질문" />
 						
 							<ul class="question_ul" id="question1">
-								<li><input class="answer" type="text" name="answer1" required placeholder="답변" /></li>
+								<li><input class="answer" type="text" name="answer1" required placeholder="답변" /> <button type="button" class="add" onclick="addAnswer('1')">+</button> 
+								</li>
 							</ul>
 							</div>
 							</div>

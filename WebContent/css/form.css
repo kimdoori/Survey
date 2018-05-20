@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .signin-page {
-  width: 800px;
+  width: 500px;
   padding: 8% 0 0;
   margin: auto;
 }
 .signup-page {
-  width: 500px;
+  width: 800px;
   padding: 8% 0 0;
   margin: auto;
 }
