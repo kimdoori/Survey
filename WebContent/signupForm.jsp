@@ -51,7 +51,7 @@
        <input type="text" name="name" required placeholder="username"/>
        <input type="tel" name="phone" required placeholder="phone number"/>
        
-     <input type="submit" class="button" value="sign In">
+     <input type="submit" class="button" value="sign Up">
        <div style="text-align:center"><p class="message">Already registered? <a href="signin.jsp">Sign In</a></p></div>
     </form>
     </td>

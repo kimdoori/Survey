@@ -101,11 +101,11 @@ margin:0px;
 	    margin-right:30px;
 
 }
-h1{
+h1#logo{
 	font-family: 'Bowlby One SC', cursive;
 	color:#5cc461;
 }
-h1 a{
+h1#logo a{
 text-decoration: none;
 }
 </style>
@@ -133,7 +133,7 @@ text-decoration: none;
 <tr>
 <td>
 <div style="text-align:center;padding:8px;">
-<h1><a href='join.jsp'>SURVEY</a></h1>
+<h1 id="logo"><a href='join.jsp'>SURVEY</a></h1>
 </div>
 </td>
 </tr>
