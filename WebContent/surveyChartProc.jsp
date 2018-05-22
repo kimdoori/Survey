@@ -15,7 +15,7 @@ var currentAnswer = 1;
 
 </head>
 <body>
-<table style="margin:auto;width:50%;">
+<table style="margin:auto;width:70%;">
 <tr>
 <td style="text-align:center;">
 <h3>개별 답변</h3>
@@ -119,7 +119,7 @@ var currentAnswer = 1;
 				 File answerDirectory = new File(filepath);
 				 if(!answerDirectory.exists()){
 			            //디렉토리 생성 메서드
-			            answerDirectory.mkdirs();
+			            out.println("<script>alert('제출된 답변이 없습니다.');history.back();</script>");
 			      }
 				 
 				 System.out.println("filepath"+filepath);
@@ -187,7 +187,8 @@ var currentAnswer = 1;
 						 System.out.println(totalAnswerArray[i][j]+" : "+totalAnswerNum[i][j]);
 						 
 						 out.println("<tr><td style='width:20%;'><span style='font-weight:bold;'>"+totalAnswerArray[i][j]+"</span></td>");
-						 out.println("<td><div style='background-color:#5cc461;display:inline-block;width:"+100/cnt*totalAnswerNum[i][j]+"%;'>"+(float)100/cnt*totalAnswerNum[i][j]+"%</div></td></tr>");
+						 out.println("<td><div style='background-color:#5cc461;display:inline-block;width:"+100/cnt*totalAnswerNum[i][j]+"%;'>"+(float)100/cnt*totalAnswerNum[i][j]+"%</div></td>");
+						 out.println("<td style='width:20%;text-align:right;'>총 "+cnt+"명 중 "+totalAnswerNum[i][j]+"명 </td></tr>");
 
 					}
 					out.println("</table>");

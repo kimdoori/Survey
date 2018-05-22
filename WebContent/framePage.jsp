@@ -53,11 +53,11 @@ body,html{
 	
 	
 </tr>
-<tr>
+<%-- <tr>
 <td colspan="2"><jsp:include page="bottom.jsp" flush="false"/></td>
 
 
-</tr>
+</tr> --%>
 
 </table>
 

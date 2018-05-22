@@ -79,7 +79,7 @@
 													if (str == null || str.substring(0, 1).equals("Q"))
 														break;
 													str = str.substring(str.indexOf(":")+1);
-													out.println("<input type='checkbox' class='check' name='answer"+cnt+"' value='"+str+"'>"+str);
+													out.println("<input type='checkbox' class='check' name='answer"+cnt+"' value='"+str+"'>"+str+"<br>");
 												}
 												
 											}else{
@@ -88,7 +88,7 @@
 													if (str == null || str.substring(0, 1).equals("Q"))
 														break;
 													str = str.substring(str.indexOf(":")+1);
-													out.println("<input type='radio' class='check' name='answer"+cnt+"' value='"+str+"' required>"+str);
+													out.println("<input type='radio' class='check' name='answer"+cnt+"' value='"+str+"' required>"+str+"<br>");
 												}
 											}
 											if (str == null)

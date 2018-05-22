@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 폼</title>
-<link rel="stylesheet" href="css/form.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -37,12 +36,12 @@ String contentpage = request.getParameter("CONTENTPAGE");
   </div>
 </div>
  -->
-<div class="signup-page">
+<div class="signin-page">
   <div class="form">
-    <table width="100%">
+    <table>
     <tr>
     
-    <td width="400px" style="padding:45px;">
+    <td style="padding:45px;">
     <form class="login-form"  action="signinProc.jsp" method="post" class="login">
     <input hidden="true">
   <input type="text" name="id" placeholder="ID"/>
